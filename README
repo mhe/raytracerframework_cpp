@@ -1,0 +1,48 @@
+======== Hauptklassen ============
+
+raytracer.h, raytracer.cpp:
+	Der eigentliche Raytracer.
+	*** RT1: Beleuchtungsmodell implementieren ***
+
+sphere.cpp, sphere.h:
+	Die von "Object" abgeleitete "Sphere".
+	*** RT1: Schnittberechnung und Normale implementieren ***
+
+object.h:
+	Die abstrakte Klasse "Object" (daher keine .cpp-Datei)
+
+light.h, light.cpp:
+	Die Klasse "Light"
+
+material.h, material.cpp:
+	Die Klasse "Material" (verwendet in Object)
+
+======== Hilfsklassen  ===========
+
+vector.h, vector.cpp:
+	Die Klassen "Vector", "Point" und "Ray" 
+	mit arithmetischen Operatoren
+
+color.h, color.cpp:
+	Die Klasse "Color" mit arithmetischen Operatoren
+
+image.h, image.cpp:
+	Die Klasse "Image" mit Ein- und Ausgabe
+
+misc.h, misc.cpp:
+	Einige allgemeine Funktionen wie max(), min() etc.
+	comment() ueberliest Kommentare
+
+======== Sonstiges ===========
+
+main.cpp:
+	Das Hauptprogramm.
+
+Makefile:
+	Uebersetzungsanweisungen:
+	make depend view
+
+rt1.in:
+	Testszene
+
+
