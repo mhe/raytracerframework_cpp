@@ -134,6 +134,36 @@ public:
 	friend istream& operator>>(istream &s, Triple &v);
 	friend ostream& operator<<(ostream &s, const Triple &v);
   	
+	// Functions for when used as a Color:
+	void set(double f)
+	{
+		r = g = b = f;
+	}
+	
+	void set(double f, double maxValue)
+	{
+		set(f/maxValue);
+	}
+	
+	void set(double red, double green, double blue)
+	{
+		r = red;
+		g = green;
+		b = blue;
+	}
+	
+	void set(double r, double g, double b, double maxValue)
+	{
+		set(r/maxValue,g/maxValue,b/maxValue);
+	}
+	
+	void clamp(double maxValue = 1.0)
+	{
+		if (r > maxValue) r = maxValue;
+		if (g > maxValue) g = maxValue;
+		if (b > maxValue) b = maxValue;
+	}
+
 	union {
 		double data[3];
 		struct {
