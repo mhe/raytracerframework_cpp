@@ -14,7 +14,7 @@
 #define __MATERIAL_H
 
 #include <iostream>
-#include "color.h"
+#include "triple.h"
 
 class Material
 {

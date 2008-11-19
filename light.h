@@ -14,8 +14,7 @@
 #define __LIGHT_H
 
 #include <iostream>
-#include "vector.h"
-#include "color.h"
+#include "triple.h"
 
 class Light
 {
@@ -25,5 +24,25 @@ public:
 
   friend istream& operator>>(istream &is, Light &l);
 };
+
+class Ray
+{
+public:
+  Point O;
+  Vector D;
+
+  // Ray(const Point &from, const Vector &dir)
+  //   : O(from), D(dir)
+  //   { }
+
+  Ray(const Point &from, const Point &to)
+    : O(from), D(to - from)
+    { D.normalize(); }
+
+  Point at(double t) const
+    { return O + t*D; }
+
+};
+
 
 #endif

@@ -14,7 +14,7 @@
 #define __IMAGE_H
 
 #include <iostream>
-#include "color.h"
+#include "triple.h"
 
 
 class Image

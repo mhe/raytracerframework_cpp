@@ -13,7 +13,8 @@
 #ifndef __OBJECT_H
 #define __OBJECT_H
 
-#include "vector.h"
+#include "triple.h"
+#include "light.h"
 
 class Material;
 

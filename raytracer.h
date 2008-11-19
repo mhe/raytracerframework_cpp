@@ -14,8 +14,9 @@
 #define __RAYTRACER_H
 
 #include <iostream>
-#include "vector.h"
-#include "color.h"
+#include "triple.h"
+#include "misc.h"
+#include "light.h"
 
 const int MAXOBJ      = 100;
 const int MAXLIGHT    = 10;

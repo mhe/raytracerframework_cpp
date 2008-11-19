@@ -38,7 +38,7 @@ bool Sphere::intersect(const Ray &ray, double *t)
   // place holder for actual intersection calculation
 
   Vector OC = (C - ray.O).normalized();
-  if (OC * ray.D > 0.999) {
+  if (OC.dot(ray.D) > 0.999) {
     *t = 1000;
     return true;
   }

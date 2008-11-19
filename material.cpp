@@ -12,6 +12,7 @@
 
 #include "material.h"
 #include <iostream>
+#include "misc.h"
 
 istream& operator>>(istream &is, Material &m)
 {
