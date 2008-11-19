@@ -34,16 +34,16 @@ public:
 		return Triple(x-t.x, y-t.y, z-t.z);
 	}
 
-	double operator*(const Triple &t) const
-	{
-		return (*this).dot(t);
-	}
+	// double operator*(const Triple &t) const
+	// {
+	// 	return (*this).dot(t);
+	// }
 
-	Triple operator^(const Triple &t) const
-	{
-		return (*this).cross(t);
-	}
-
+	// Triple operator^(const Triple &t) const
+	// {
+	// 	return (*this).cross(t);
+	// }
+	// 
 	Triple operator*(double f) const
 	{
 		return Triple(x*f, y*f, z*f);
