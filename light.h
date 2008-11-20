@@ -31,13 +31,9 @@ public:
   Point O;
   Vector D;
 
-  // Ray(const Point &from, const Vector &dir)
-  //   : O(from), D(dir)
-  //   { }
-
-  Ray(const Point &from, const Point &to)
-    : O(from), D(to - from)
-    { D.normalize(); }
+  Ray(const Point &from, const Vector &dir)
+    : O(from), D(dir)
+    { }
 
   Point at(double t) const
     { return O + t*D; }

@@ -78,7 +78,7 @@ void Raytracer::trace(Image &img)
   for (int y = 0; y < h; y++) {
     for (int x = 0; x < w; x++) {
       Point pixel(x, h-1- y, 0);
-      Ray ray(eye, pixel);
+      Ray ray(eye, (pixel-eye).normalized());
       Color col = trace(ray);
       col.clamp();
       img(x,y) = col;
