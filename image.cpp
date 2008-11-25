@@ -13,6 +13,7 @@
  *****************************************************************************/
 
 #include "image.h"
+#include "lodepng.h"
 #include "misc.h"
 #include <fstream>
 
@@ -26,6 +27,32 @@ bool Image::set_extent(int width, int height)
   if (_pixel) delete[] _pixel;
   _pixel = size() > 0 ? new Color[size()] : 0;
   return _pixel != 0;
+}
+
+
+void Image::write_png(string filename) const
+{
+	std::vector<unsigned char> image;
+	image.resize(_width * _height * 4);
+	std::vector<unsigned char>::iterator imageIterator = image.begin();
+	Color *currentPixel = _pixel;
+	while (imageIterator != image.end()) {
+		*imageIterator = currentPixel->r * 255;
+		imageIterator++;
+		*imageIterator = currentPixel->g * 255;
+		imageIterator++;
+		*imageIterator = currentPixel->b * 255;
+		imageIterator++;
+		*imageIterator = 255;
+		imageIterator++;
+		currentPixel++;
+	}
+	LodePNG::encode(filename.c_str(), image, _width, _height);
+}
+
+
+void Image::read_png(string filename) const
+{
 }
 
 

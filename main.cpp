@@ -48,7 +48,8 @@ int main(int argc, char *argv[])
 
   cerr << "Writing to " << argv[2] << endl;
 
-  img.write_ppm(os, true);
+  // img.write_ppm(os, true);
+img.write_png(std::string(argv[2]));
 
   cerr << "Done" << endl;
   return 0;

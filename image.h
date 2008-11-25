@@ -61,6 +61,10 @@ public:
   void write_ppm(ostream& s, bool bin = true) const;
   bool read_ppm(istream& s);
 
+void write_png(string filename) const;
+void read_png(string filename) const;
+
+
 protected:
 
   inline int index(int x, int y) const            //integer index
