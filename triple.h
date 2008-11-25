@@ -34,16 +34,11 @@ public:
 		return Triple(x-t.x, y-t.y, z-t.z);
 	}
 
-	// double operator*(const Triple &t) const
-	// {
-	// 	return (*this).dot(t);
-	// }
+	Triple operator*(const Triple &t) const
+	{
+		return Triple(x*t.x,y*t.y,z*t.z);
+	}
 
-	// Triple operator^(const Triple &t) const
-	// {
-	// 	return (*this).cross(t);
-	// }
-	// 
 	Triple operator*(double f) const
 	{
 		return Triple(x*f, y*f, z*f);
@@ -121,14 +116,13 @@ public:
 		return (*this) / length();
 	}
 
-	double normalize()
+	void normalize()
 	{
 		double l = length();
 		double invl = 1/l;
 		x *= invl;
 		y *= invl;
 		z *= invl;
-		return l;
 	}	
 
 	friend istream& operator>>(istream &s, Triple &v);
