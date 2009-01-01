@@ -12,30 +12,32 @@ Color Scene::trace(const Ray &ray)
 {
 	// Find hit object and distance
 	double t, min_t = 0.0;
-	Object *obj = 0;
-	for (int i = 0; i < numObjects; ++i)
-	if (objects[i]->intersect(ray, &t) && (!obj || t < min_t)) {
-		min_t = t;
-		obj = objects[i];
+	Object *obj = NULL;
+	for (int i = 0; i < numObjects; ++i) {
+		if (objects[i]->intersect(ray, &t) && (!obj || t < min_t)) {
+			min_t = t;
+			obj = objects[i];
+		}
 	}
+	
+	// No hit? Return background color.
 	if (!obj) return Color(0.0, 0.0, 0.0);
 
 	Material *material = obj->material;            //the hit objects material
 	Point hit = ray.at(min_t);                     //the hit point
-	Vector N = obj->normal(hit);                   //the normal
+	Vector N = obj->normal(hit);                   //the normal at hit point
 	Vector V = -ray.D;                             //the view vector
 
 
 	/****************************************************
-	* RT1.3: LIGHTING CALCULATION
-	* 
-	* Insert calculation of color here (PHONG model).
+	* This is where you should insert the color
+	* calculation (Phong model).
 	*
 	* Given: material, hit, N, V, lights[]
 	* Sought: color
 	*
-	* Hints: (see vector.h)
-	*        Vector*Vector      dot product
+	* Hints: (see triple.h)
+	*        Vector.dot(Vector) dot product
 	*        Vector+Vector      vector sum
 	*        Vector-Vector      vector difference
 	*        Point-Point        yields vector
