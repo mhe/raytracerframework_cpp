@@ -17,6 +17,6 @@
 istream& operator>>(istream &is, Material &m)
 {
   is >> m.color >> comment
-     >> m.ambient >> m.diffuse >> m.specular >> m.phong;
+     >> m.ka >> m.kd >> m.ks >> m.n;
   return is;
 }

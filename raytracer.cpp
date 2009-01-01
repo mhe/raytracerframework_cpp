@@ -17,6 +17,7 @@
 #include "material.h"
 #include "light.h"
 #include "image.h"
+#include "yaml/yaml.h"
 #include <ctype.h>
 #include <iostream>
 
@@ -38,48 +39,85 @@ void Raytracer::trace(Image &img)
 	scene->render(img);
 }
 
+
+// Functions to ease reading form YAML input
+
+void operator >> (const YAML::Node& node, Triple& t)
+{
+    node[0] >> t.x;
+    node[1] >> t.y;
+    node[2] >> t.z;
+}
+
+Triple parseTriple(const YAML::Node& node)
+{
+	Triple t;
+    node[0] >> t.x;
+    node[1] >> t.y;
+    node[2] >> t.z;	
+	return t;
+}
+
+Material* parseMaterial(const YAML::Node& node)
+{
+	Material *m = new Material();
+	node["color"] >> m->color;	
+	node["ka"] >> m->ka;
+	node["kd"] >> m->kd;
+	node["ks"] >> m->ks;
+	node["n"] >> m->n;
+	return m;
+}
+
+Object* parseObject(const YAML::Node& node)
+{
+	Object *returnObject = NULL;
+	std::string objectType;
+	node["type"] >> objectType;
+	if (objectType.compare("sphere") == 0) {
+		
+		Triple pos;
+		node["position"] >> pos;
+		double r;
+		node["radius"] >> r;
+		Sphere *sphere = new Sphere(pos,r);
+		returnObject = sphere;
+	}
+	if (returnObject) {
+		// read the material
+		returnObject->material = parseMaterial(node["material"]);
+	}
+	return returnObject;
+}
+
 /*
  * Read a scene from file
  */
 
 bool Raytracer::read(istream& is)
 {
-  Material *mat = 0;
-  Triple eye;
-  scene = new Scene();
-  while (is) {
-    char ch = 0;
-    is >> comment >> ch >> word >> comment;
-    ch = toupper(ch);
-    cerr << ch;
-    switch (ch) {
-      case 'E': // Eye
-	is >> eye;
-	scene->setEye(eye);
-	break;
-      case 'M': // Material
-	mat = new Material;
-	is >> *mat;
-	break;
-      case 'L': // Light
-	  Light *light = new Light;
-	  is >> *light;
-	  //lights[light_count++] = light;
-	  scene->addLight(light);
-	break;
-      case 'S': // Sphere
-	  Sphere *sph = new Sphere;
-	  is >> *sph;
-	  sph->material = mat;
-  	  scene->addObject(sph);
-	break;
-      default:
-	cerr << "?" << endl;
-	return false;
+	scene = new Scene();
+	YAML::Parser parser(is);
+	while(parser) {
+        YAML::Node doc;
+        parser.GetNextDocument(doc);
+
+		scene->setEye(parseTriple(doc["Eye"]));
+		
+		const YAML::Node& sceneObjects = doc["Objects"];
+		if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
+			cerr << "Error: expected a list of objects." << endl;
+			return false;
+		}
+		for(YAML::Iterator it=sceneObjects.begin();it!=sceneObjects.end();++it) {
+			Object *obj = parseObject(*it);
+			// Only add object if it is recognized
+			if (obj) {
+				scene->addObject(obj);
+			}
+		}
     }
-  }
-  cerr << endl;
-  return true;
+	return true;
 }
 
 

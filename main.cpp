@@ -12,10 +12,41 @@
 
 #include "raytracer.h"
 #include "image.h"
+#include "yaml/yaml.h"
 #include <fstream>
+
+void yamltest()
+{
+	std::ifstream fin("scene01.yaml");
+    YAML::Parser parser(fin);
+
+    while(parser) {
+        YAML::Node doc;
+        parser.GetNextDocument(doc);
+		std::string rendertype;
+		doc["RenderType"] >> rendertype;
+		cout << "The render type is: " << rendertype << endl;
+		const YAML::Node& sceneObjects = doc["Objects"];
+		if (sceneObjects.GetType() == YAML::CT_SEQUENCE) {
+			cout << "Yes it is a sequence!" << endl;
+		}
+		for(YAML::Iterator it=sceneObjects.begin();it!=sceneObjects.end();++it) {
+		    std::cout << "Object type: " << (*it)["type"] << std::endl;
+			const YAML::Node& material = (*it)["material"];
+			cout << "Node type: " << material.GetType() << endl;
+			cout << "is alias: " << material.IsAlias() << endl;
+			cout << "" << material.GetAnchor() << endl;
+			// cout << "Material: " << endl;
+			// cout << " ka: " << material["ka"] << endl;
+			// cout << " kd: " << material["kd"] << endl;
+			// cout << " ks: " << material["ks"] << endl;
+		}
+    }
+}
 
 int main(int argc, char *argv[])
 {
+	//yamltest();
   if (argc < 3) {
     cerr << "Usage: " << argv[0] << " in-file out-file.ppm" << endl;
     return 1;

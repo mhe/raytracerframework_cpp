@@ -31,7 +31,7 @@ public:
 	void render(Image &img);
 	void addObject(Object *o);
 	void addLight(Light *l);
-	void setEye(Triple &e);
+	void setEye(Triple e);
 };
 
 #endif /* end of include guard: SCENE_H_KNBLQLP6 */

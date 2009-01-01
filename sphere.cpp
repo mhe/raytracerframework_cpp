@@ -22,7 +22,7 @@ bool Sphere::intersect(const Ray &ray, double *t)
   /****************************************************
    * RT1.1: INTERSECTION CALCULATION
    *
-   * Given: ray, C, r
+   * Given: ray, position, r
    * Sought: intersects? if true: *t
    * 
    * Insert calculation of ray/sphere intersection here. 
@@ -37,7 +37,7 @@ bool Sphere::intersect(const Ray &ray, double *t)
 
   // place holder for actual intersection calculation
 
-  Vector OC = (C - ray.O).normalized();
+  Vector OC = (position - ray.O).normalized();
   if (OC.dot(ray.D) > 0.999) {
     *t = 1000;
     return true;
@@ -66,7 +66,7 @@ Vector Sphere::normal(const Point &P)
 
 istream& operator>>(istream &is, Sphere &s)
 {
-  is >> s.C >> comment
+  is >> s.position >> comment
      >> s.r >> comment;
   return is;
 }

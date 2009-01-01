@@ -79,7 +79,7 @@ void Scene::addLight(Light *l)
 	numLights += 1;
 }
 
-void Scene::setEye(Triple &e)
+void Scene::setEye(Triple e)
 {
 	eye = e;
 }
