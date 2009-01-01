@@ -28,7 +28,7 @@ CPP = g++ -g -Wall
 LIBS = -lm
 
 OBJS = main.o raytracer.o sphere.o light.o material.o \
-	misc.o image.o triple.o lodepng.o
+	misc.o image.o triple.o lodepng.o scene.o
 
 ### TARGETS
 

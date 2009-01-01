@@ -17,6 +17,7 @@
 #include "triple.h"
 #include "misc.h"
 #include "light.h"
+#include "scene.h"
 
 const int MAXOBJ      = 100;
 const int MAXLIGHT    = 10;
@@ -27,14 +28,9 @@ class Image;
 
 class Raytracer {
 public:
-  Point eye;
-  Object* objs[MAXOBJ];
-  int obj_count;
-  Light* lights[MAXLIGHT];
-  int light_count;
-
+  // temporary for transition
+  Scene *scene;
   Raytracer()
-    : eye(0, 0, 0), obj_count(0), light_count(0)
   { }
 
   Color trace(const Ray &ray);
