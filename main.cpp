@@ -11,9 +11,6 @@
 *****************************************************************************/
 
 #include "raytracer.h"
-#include "image.h"
-#include <fstream>
-
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +23,8 @@ int main(int argc, char *argv[])
 	Raytracer raytracer;
 
 	if (!raytracer.readScene(argv[1])) {
-		cerr << "Error reading scene from " << argv[1] << endl;
+		cerr << "Error: reading scene from " << argv[1] << " failed - no output generated."<< endl;
+		return 1;
 	}
 	raytracer.renderToFile(argv[2]);
 	

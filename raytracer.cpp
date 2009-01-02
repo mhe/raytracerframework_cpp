@@ -89,37 +89,49 @@ bool Raytracer::readScene(char* inputFilename)
 {
 	scene = new Scene();
 
+	// Open file stream for reading and have the YAML module parse it
 	std::ifstream fin(inputFilename);
-	YAML::Parser parser(fin);
-	while(parser) {
-        YAML::Node doc;
-        parser.GetNextDocument(doc);
-
-		scene->setEye(parseTriple(doc["Eye"]));
+	if (!fin) {
+		cerr << "Error: unable to open " << inputFilename << " for reading." << endl;;
+		return false;
+	}
+	try {
+		YAML::Parser parser(fin);
+		while(parser) {
+	        YAML::Node doc;
+	        parser.GetNextDocument(doc);
 		
-		const YAML::Node& sceneObjects = doc["Objects"];
-		if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
-			cerr << "Error: expected a list of objects." << endl;
-			return false;
-		}
-		for(YAML::Iterator it=sceneObjects.begin();it!=sceneObjects.end();++it) {
-			Object *obj = parseObject(*it);
-			// Only add object if it is recognized
-			if (obj) {
-				scene->addObject(obj);
+			// Read scene configuration options
+			scene->setEye(parseTriple(doc["Eye"]));
+		
+			// Read and parse the scene objects
+			const YAML::Node& sceneObjects = doc["Objects"];
+			if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
+				cerr << "Error: expected a list of objects." << endl;
+				return false;
 			}
-		}
+			for(YAML::Iterator it=sceneObjects.begin();it!=sceneObjects.end();++it) {
+				Object *obj = parseObject(*it);
+				// Only add object if it is recognized
+				if (obj) {
+					scene->addObject(obj);
+				}
+			}
 		
-		const YAML::Node& sceneLights = doc["Lights"];
-		if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
-			cerr << "Error: expected a list of lights." << endl;
-			return false;
-		}
-		for(YAML::Iterator it=sceneLights.begin();it!=sceneLights.end();++it) {
-			scene->addLight(parseLight(*it));
-		}
-		
-    }
+			// Read and parse light definitions
+			const YAML::Node& sceneLights = doc["Lights"];
+			if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
+				cerr << "Error: expected a list of lights." << endl;
+				return false;
+			}
+			for(YAML::Iterator it=sceneLights.begin();it!=sceneLights.end();++it) {
+				scene->addLight(parseLight(*it));
+			}
+	    }
+	} catch(YAML::ParserException& e) {
+	    std::cerr << "Error at line " << e.line + 1 << ", col " << e.column + 1 << ": " << e.msg << std::endl;
+		return false;
+	}
 	return true;
 }
 
