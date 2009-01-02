@@ -30,7 +30,7 @@ bool Image::set_extent(int width, int height)
 }
 
 
-void Image::write_png(string filename) const
+void Image::write_png(char* filename) const
 {
 	std::vector<unsigned char> image;
 	image.resize(_width * _height * 4);
@@ -47,11 +47,11 @@ void Image::write_png(string filename) const
 		imageIterator++;
 		currentPixel++;
 	}
-	LodePNG::encode(filename.c_str(), image, _width, _height);
+	LodePNG::encode(filename, image, _width, _height);
 }
 
 
-void Image::read_png(string filename) const
+void Image::read_png(char* filename) const
 {
 }
 

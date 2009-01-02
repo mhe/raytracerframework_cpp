@@ -19,24 +19,16 @@
 #include "light.h"
 #include "scene.h"
 
-const int MAXOBJ      = 100;
-const int MAXLIGHT    = 10;
-
-class Object;
-class Light;
-class Image;
 
 class Raytracer {
+private:
+	Scene *scene;
 public:
-  // temporary for transition
-  Scene *scene;
-  Raytracer()
-  { }
+	Raytracer()
+		{ }
 
-  Color trace(const Ray &ray);
-  void trace(Image &img);
-
-  bool read(istream& is);
+	bool readScene(char* inputFilename);
+	void renderToFile(char* outputFilename);
 };
 
 #endif

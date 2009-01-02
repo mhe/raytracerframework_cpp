@@ -19,25 +19,7 @@
 #include "image.h"
 #include "yaml/yaml.h"
 #include <ctype.h>
-#include <iostream>
-
-/*
- * Trace one ray, answer color
- */
-
-Color Raytracer::trace(const Ray &ray)
-{
-	return scene->trace(ray);
-}
-
-/*
- * Raytrace Raytracer into image
- */
-
-void Raytracer::trace(Image &img)
-{
-	scene->render(img);
-}
+#include <fstream>
 
 
 // Functions to ease reading form YAML input
@@ -103,10 +85,12 @@ Light* parseLight(const YAML::Node& node)
  * Read a scene from file
  */
 
-bool Raytracer::read(istream& is)
+bool Raytracer::readScene(char* inputFilename)
 {
 	scene = new Scene();
-	YAML::Parser parser(is);
+
+	std::ifstream fin(inputFilename);
+	YAML::Parser parser(fin);
 	while(parser) {
         YAML::Node doc;
         parser.GetNextDocument(doc);
@@ -137,4 +121,14 @@ bool Raytracer::read(istream& is)
 		
     }
 	return true;
+}
+
+void Raytracer::renderToFile(char* outputFilename)
+{
+	Image img(400,400);
+	cout << "Tracing..." << endl;
+	scene->render(img);
+	cout << "Writing image to " << outputFilename << "..." << endl;
+	img.write_png(outputFilename);
+	cout << "Done." << endl;
 }

@@ -61,8 +61,8 @@ public:
   void write_ppm(ostream& s, bool bin = true) const;
   bool read_ppm(istream& s);
 
-void write_png(string filename) const;
-void read_png(string filename) const;
+void write_png(char* filename) const;
+void read_png(char* filename) const;
 
 
 protected:
