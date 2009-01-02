@@ -10,8 +10,8 @@
  *
  *****************************************************************************/
 
-#ifndef __RAYTRACER_H
-#define __RAYTRACER_H
+#ifndef RAYTRACER_H_6GQO67WK
+#define RAYTRACER_H_6GQO67WK
 
 #include <iostream>
 #include "triple.h"
@@ -30,4 +30,4 @@ public:
 	void renderToFile(char* outputFilename);
 };
 
-#endif
+#endif /* end of include guard: RAYTRACER_H_6GQO67WK */

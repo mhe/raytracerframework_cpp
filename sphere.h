@@ -10,8 +10,8 @@
  *
  *****************************************************************************/
 
-#ifndef __SPHERE_H
-#define __SPHERE_H
+#ifndef SPHERE_H_115209AE
+#define SPHERE_H_115209AE
 
 #include "object.h"
 
@@ -29,4 +29,4 @@ public:
 	virtual Vector normal(const Point &P);
 };
 
-#endif
+#endif /* end of include guard: SPHERE_H_115209AE */

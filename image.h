@@ -10,8 +10,8 @@
 *
 *****************************************************************************/
 
-#ifndef __IMAGE_H
-#define __IMAGE_H
+#ifndef IMAGE_H_IOLFQARK
+#define IMAGE_H_IOLFQARK
 
 #include <iostream>
 #include "triple.h"
@@ -117,5 +117,5 @@ inline void Image::derivativeAt(float x, float y, float *dx, float *dy) const
 	*dy = _pixel[windex(ix+1,iy)].g - _pixel[index(ix,iy)].g;
 }
 
-#endif
+#endif /* end of include guard: IMAGE_H_IOLFQARK */
 

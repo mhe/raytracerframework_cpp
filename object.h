@@ -10,8 +10,8 @@
  *
  *****************************************************************************/
 
-#ifndef __OBJECT_H
-#define __OBJECT_H
+#ifndef OBJECT_H_AXKLE0OF
+#define OBJECT_H_AXKLE0OF
 
 #include "triple.h"
 #include "light.h"
@@ -29,4 +29,4 @@ public:
 	virtual Vector normal(const Point &hit) = 0;
 };
 
-#endif
+#endif /* end of include guard: OBJECT_H_AXKLE0OF */

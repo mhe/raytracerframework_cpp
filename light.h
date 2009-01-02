@@ -10,8 +10,11 @@
  *
  *****************************************************************************/
 
-#ifndef __LIGHT_H
-#define __LIGHT_H
+#ifndef LIGHT_H_PG2BAJRA
+#define LIGHT_H_PG2BAJRA
+
+
+
 
 #include <iostream>
 #include "triple.h"
@@ -38,4 +41,4 @@ public:
 
 };
 
-#endif
+#endif /* end of include guard: LIGHT_H_PG2BAJRA */

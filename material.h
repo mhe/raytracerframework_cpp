@@ -10,8 +10,8 @@
  *
  *****************************************************************************/
 
-#ifndef __MATERIAL_H
-#define __MATERIAL_H
+#ifndef MATERIAL_H_TWMNT2EJ
+#define MATERIAL_H_TWMNT2EJ
 
 #include <iostream>
 #include "triple.h"
@@ -29,4 +29,4 @@ public:
 		{ }
 };
 
-#endif
+#endif /* end of include guard: MATERIAL_H_TWMNT2EJ */

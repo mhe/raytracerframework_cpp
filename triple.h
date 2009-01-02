@@ -5,8 +5,8 @@
 //  Created by Maarten Everts on 2008-11-18.
 //  Copyright 2008 University of Groningen. All rights reserved.
 // 
-#ifndef _TRIPLE_H_
-#define _TRIPLE_H_
+#ifndef TRIPLE_H_SEVQHPTA
+#define TRIPLE_H_SEVQHPTA
 
 #include <math.h>
 #include <iostream>
@@ -177,4 +177,4 @@ typedef Triple Color;
 typedef Triple Point;
 typedef Triple Vector;
 
-#endif /* _TRIPLE_H_ */
+#endif /* end of include guard: TRIPLE_H_SEVQHPTA */
