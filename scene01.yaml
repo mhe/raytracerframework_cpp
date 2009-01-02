@@ -6,7 +6,7 @@ Eye: [200,200,1000]
 
 Lights:
   - position: [-200,600,1500]
-    color: [1.0,1,0,1.0]
+    color: [1.0,1.0,1.0]
 
 Objects:
   - type: sphere

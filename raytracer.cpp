@@ -44,6 +44,7 @@ void Raytracer::trace(Image &img)
 
 void operator >> (const YAML::Node& node, Triple& t)
 {
+	assert(node.size()==3);
     node[0] >> t.x;
     node[1] >> t.y;
     node[2] >> t.z;
@@ -90,6 +91,14 @@ Object* parseObject(const YAML::Node& node)
 	return returnObject;
 }
 
+Light* parseLight(const YAML::Node& node)
+{
+	Light* light = new Light();
+	node["position"] >> light->P;
+	node["color"] >> light->color;
+	return light;
+}
+
 /*
  * Read a scene from file
  */
@@ -116,8 +125,16 @@ bool Raytracer::read(istream& is)
 				scene->addObject(obj);
 			}
 		}
+		
+		const YAML::Node& sceneLights = doc["Lights"];
+		if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
+			cerr << "Error: expected a list of lights." << endl;
+			return false;
+		}
+		for(YAML::Iterator it=sceneLights.begin();it!=sceneLights.end();++it) {
+			scene->addLight(parseLight(*it));
+		}
+		
     }
 	return true;
 }
-
-
