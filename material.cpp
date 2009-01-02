@@ -11,12 +11,3 @@
  *****************************************************************************/
 
 #include "material.h"
-#include <iostream>
-#include "misc.h"
-
-istream& operator>>(istream &is, Material &m)
-{
-  is >> m.color >> comment
-     >> m.ka >> m.kd >> m.ks >> m.n;
-  return is;
-}

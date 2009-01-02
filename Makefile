@@ -28,7 +28,7 @@ CPP = g++ -g -Wall
 LIBS = -lm
 
 OBJS = main.o raytracer.o sphere.o light.o material.o \
-	misc.o image.o triple.o lodepng.o scene.o
+	image.o triple.o lodepng.o scene.o
 
 YAMLOBJS = yaml/content.o yaml/exp.o yaml/iterator.o yaml/map.o \
 	yaml/node.o yaml/parser.o yaml/parserstate.o yaml/regex.o \

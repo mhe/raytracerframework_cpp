@@ -19,26 +19,23 @@
 class Light
 {
 public:
-  Point P;
-  Color color;
-
-  friend istream& operator>>(istream &is, Light &l);
+	Point P;
+	Color color;
 };
 
 class Ray
 {
 public:
-  Point O;
-  Vector D;
+	Point O;
+	Vector D;
 
-  Ray(const Point &from, const Vector &dir)
-    : O(from), D(dir)
-    { }
+	Ray(const Point &from, const Vector &dir)
+		: O(from), D(dir)
+		{ }
 
-  Point at(double t) const
-    { return O + t*D; }
+	Point at(double t) const
+		{ return O + t*D; }
 
 };
-
 
 #endif

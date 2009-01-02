@@ -97,7 +97,7 @@ bool Raytracer::readScene(char* inputFilename)
 	}
 	try {
 		YAML::Parser parser(fin);
-		while(parser) {
+		while (parser) {
 	        YAML::Node doc;
 	        parser.GetNextDocument(doc);
 		

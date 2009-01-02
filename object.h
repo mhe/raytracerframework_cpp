@@ -20,13 +20,13 @@ class Material;
 
 class Object {
 public:
-  Material *material;
+	Material *material;
 
-  virtual ~Object()
-    { }
+	virtual ~Object()
+		{ }
 
-  virtual bool intersect(const Ray &ray, double *t) = 0;
-  virtual Vector normal(const Point &hit) = 0;
+	virtual bool intersect(const Ray &ray, double *t) = 0;
+	virtual Vector normal(const Point &hit) = 0;
 };
 
 #endif

@@ -11,10 +11,3 @@
  *****************************************************************************/
 
 #include "light.h"
-#include "misc.h"
-#include <iostream>
-
-istream& operator>>(istream &is, Light &l)
-{
-  return is >> l.P >> comment >> l.color;
-}

@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include "triple.h"
-#include "misc.h"
 #include "light.h"
 #include "scene.h"
 

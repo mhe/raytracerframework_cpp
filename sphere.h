@@ -18,17 +18,15 @@
 class Sphere : public Object
 {
 protected:
-  Point position;
-  double r;
+	Point position;
+	double r;
 public:
 
-  Sphere(Point position,double r)
-	{ this->position = position; this->r = r; }
+	Sphere(Point position,double r)
+		{ this->position = position; this->r = r; }
 
-  virtual bool intersect(const Ray &ray, double *t);
-  virtual Vector normal(const Point &P);
-
-  friend istream& operator>>(istream &is, Sphere &s);
+	virtual bool intersect(const Ray &ray, double *t);
+	virtual Vector normal(const Point &P);
 };
 
 #endif

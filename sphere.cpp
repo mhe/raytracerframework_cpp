@@ -11,7 +11,6 @@
  *****************************************************************************/
 
 #include "sphere.h"
-#include "misc.h"
 #include <iostream>
 #include <math.h>
 
@@ -19,55 +18,47 @@
 
 bool Sphere::intersect(const Ray &ray, double *t)
 {
-  /****************************************************
-   * RT1.1: INTERSECTION CALCULATION
-   *
-   * Given: ray, position, r
-   * Sought: intersects? if true: *t
-   * 
-   * Insert calculation of ray/sphere intersection here. 
-   *
-   * You have the sphere's center (C) and radius (r) as well as
-   * the ray's origin (ray.O) and direction (ray.D).
-   *
-   * If the ray does not intersect the sphere, return false.
-   * Otherwise, return true and place the distance of the
-   * intersection point from the ray origin in *t (see example).
-   ****************************************************/
+	/****************************************************
+	* RT1.1: INTERSECTION CALCULATION
+	*
+	* Given: ray, position, r
+	* Sought: intersects? if true: *t
+	* 
+	* Insert calculation of ray/sphere intersection here. 
+	*
+	* You have the sphere's center (C) and radius (r) as well as
+	* the ray's origin (ray.O) and direction (ray.D).
+	*
+	* If the ray does not intersect the sphere, return false.
+	* Otherwise, return true and place the distance of the
+	* intersection point from the ray origin in *t (see example).
+	****************************************************/
 
-  // place holder for actual intersection calculation
+	// place holder for actual intersection calculation
 
-  Vector OC = (position - ray.O).normalized();
-  if (OC.dot(ray.D) > 0.999) {
-    *t = 1000;
-    return true;
-  }
-  
-  return false;
+	Vector OC = (position - ray.O).normalized();
+	if (OC.dot(ray.D) > 0.999) {
+		*t = 1000;
+		return true;
+	}
+
+	return false;
 }
 
 
 Vector Sphere::normal(const Point &P)
 {
-  /****************************************************
-   * RT1.2: NORMAL CALCULATION
-   *
-   * Given: P, C, r
-   * Sought: N
-   * 
-   * Insert calculation of the sphere's normal at point P here.
-   ****************************************************/
+	/****************************************************
+	* RT1.2: NORMAL CALCULATION
+	*
+	* Given: P, C, r
+	* Sought: N
+	* 
+	* Insert calculation of the sphere's normal at point P here.
+	****************************************************/
 
-  Vector N /* = ... */;
-  
-  return N;
-}
+	Vector N /* = ... */;
 
-
-istream& operator>>(istream &is, Sphere &s)
-{
-  is >> s.position >> comment
-     >> s.r >> comment;
-  return is;
+	return N;
 }
 

@@ -19,16 +19,14 @@
 class Material
 {
 public:
-  Color color;        // base color
-  float ka;      // ambient intensity
-  float kd;      // diffuse intensity
-  float ks;     // specular intensity 
-  float n;        // exponent for specular highlight size
+	Color color;        // base color
+	float ka;           // ambient intensity
+	float kd;           // diffuse intensity
+	float ks;           // specular intensity 
+	float n;            // exponent for specular highlight size
 
-  Material()
-    { }
-
-  friend istream& operator>>(istream &is, Material &m);
+	Material()
+		{ }
 };
 
 #endif
