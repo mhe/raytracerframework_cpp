@@ -62,7 +62,7 @@ public:
 	bool read_ppm(istream& s);
 
 	void write_png(char* filename) const;
-	void read_png(char* filename) const;
+	void read_png(char* filename);
 
 
 protected:

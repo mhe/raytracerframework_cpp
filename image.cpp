@@ -50,9 +50,39 @@ void Image::write_png(char* filename) const
 }
 
 
-void Image::read_png(char* filename) const
+void Image::read_png(char* filename)
 {
-	// TODO!
+	std::vector<unsigned char> buffer, image;
+	 //load the image file with given filename
+	LodePNG::loadFile(buffer, filename);
+	
+	 //decode the png
+	LodePNG::Decoder decoder;
+	decoder.decode(image, buffer.empty() ? 0 : &buffer[0], (unsigned)buffer.size());
+	
+	if (decoder.getChannels()!=3 || decoder.getBpp()!=24) {
+		cerr << "Error: only color (RGBA), 8 bit per channel png images are supported." << endl;
+		cerr << "Either convert your image or change the sourcode." << endl;
+		exit(1);
+	}
+	int w = decoder.getWidth();
+	int h = decoder.getHeight();
+	set_extent(w,h);
+	
+	// now convert the image data
+	std::vector<unsigned char>::iterator imageIterator = image.begin();
+	Color *currentPixel = _pixel;
+	while (imageIterator != image.end()) {
+		currentPixel->r = (*imageIterator)/255.0;
+		imageIterator++;
+		currentPixel->g = (*imageIterator)/255.0;
+		imageIterator++;
+		currentPixel->b = (*imageIterator)/255.0;
+		imageIterator++;
+		// Let's just ignore the alpha channel
+		imageIterator++; 
+		currentPixel++;
+	}	
 }
 
 
