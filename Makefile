@@ -43,7 +43,7 @@ make.dep:
 
 ### RULES
 
-.SUFFIXES: .cpp .o .in .ppm .png .jpg .gif
+.SUFFIXES: .cpp .o .yaml .png
 
 .cpp.o:
 	$(CPP) -c -o $@ $<
