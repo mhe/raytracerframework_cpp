@@ -17,16 +17,17 @@
 
 class Sphere : public Object
 {
-protected:
-	Point position;
-	double r;
 public:
-
+	Sphere()
+		{ }
 	Sphere(Point position,double r)
 		{ this->position = position; this->r = r; }
 
 	virtual bool intersect(const Ray &ray, double *t);
 	virtual Vector normal(const Point &P);
+	
+	Point position;
+	double r;	
 };
 
 #endif /* end of include guard: SPHERE_H_115209AE */

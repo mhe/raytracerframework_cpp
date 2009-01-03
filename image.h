@@ -80,7 +80,7 @@ protected:
 	inline int findex(float x, float y) const       //float index
 		{ return index(int(x * (_width-1)), int(y * (_height-1))); }
 
-	// Create a picture. Answer false if failed.
+	// Create a picture. Return false if failed.
 	bool set_extent(int width, int height);
 
 };

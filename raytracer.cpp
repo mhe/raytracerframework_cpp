@@ -22,7 +22,7 @@
 #include <fstream>
 
 
-// Functions to ease reading form YAML input
+// Functions to ease reading from YAML input
 
 void operator >> (const YAML::Node& node, Triple& t)
 {
@@ -59,15 +59,15 @@ Object* parseObject(const YAML::Node& node)
 	node["type"] >> objectType;
 	if (objectType.compare("sphere") == 0) {
 		
-		Triple pos;
+		Point pos;
 		node["position"] >> pos;
 		double r;
 		node["radius"] >> r;
-		Sphere *sphere = new Sphere(pos,r);
+		Sphere *sphere = new Sphere(pos,r);		
 		returnObject = sphere;
 	}
 	if (returnObject) {
-		// read the material
+		// read the material and attach to object
 		returnObject->material = parseMaterial(node["material"]);
 	}
 	return returnObject;
@@ -75,10 +75,11 @@ Object* parseObject(const YAML::Node& node)
 
 Light* parseLight(const YAML::Node& node)
 {
-	Light* light = new Light();
-	node["position"] >> light->P;
-	node["color"] >> light->color;
-	return light;
+	Point position;
+	node["position"] >> position;
+	Color color;
+	node["color"] >> color;
+	return new Light(position,color);
 }
 
 /*
@@ -87,6 +88,7 @@ Light* parseLight(const YAML::Node& node)
 
 bool Raytracer::readScene(char* inputFilename)
 {
+	// Initialize a new scene
 	scene = new Scene();
 
 	// Open file stream for reading and have the YAML module parse it
@@ -97,7 +99,7 @@ bool Raytracer::readScene(char* inputFilename)
 	}
 	try {
 		YAML::Parser parser(fin);
-		while (parser) {
+		if (parser) {
 	        YAML::Node doc;
 	        parser.GetNextDocument(doc);
 		
@@ -107,7 +109,7 @@ bool Raytracer::readScene(char* inputFilename)
 			// Read and parse the scene objects
 			const YAML::Node& sceneObjects = doc["Objects"];
 			if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
-				cerr << "Error: expected a list of objects." << endl;
+				cerr << "Error: expected a sequence of objects." << endl;
 				return false;
 			}
 			for(YAML::Iterator it=sceneObjects.begin();it!=sceneObjects.end();++it) {
@@ -115,19 +117,24 @@ bool Raytracer::readScene(char* inputFilename)
 				// Only add object if it is recognized
 				if (obj) {
 					scene->addObject(obj);
+				} else {
+					cerr << "Warning: found object of unknown type, ignored." << endl;
 				}
 			}
 		
 			// Read and parse light definitions
 			const YAML::Node& sceneLights = doc["Lights"];
 			if (sceneObjects.GetType() != YAML::CT_SEQUENCE) {
-				cerr << "Error: expected a list of lights." << endl;
+				cerr << "Error: expected a sequence of lights." << endl;
 				return false;
 			}
 			for(YAML::Iterator it=sceneLights.begin();it!=sceneLights.end();++it) {
 				scene->addLight(parseLight(*it));
 			}
 	    }
+		if (parser) {
+			cerr << "Warning: unexpected YAML document, ignored." << endl;
+		}
 	} catch(YAML::ParserException& e) {
 	    std::cerr << "Error at line " << e.line + 1 << ", col " << e.column + 1 << ": " << e.msg << std::endl;
 		return false;

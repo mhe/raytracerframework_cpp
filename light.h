@@ -13,16 +13,16 @@
 #ifndef LIGHT_H_PG2BAJRA
 #define LIGHT_H_PG2BAJRA
 
-
-
-
 #include <iostream>
 #include "triple.h"
 
 class Light
 {
 public:
-	Point P;
+	Light(Point pos,Color c) : position(pos), color(c)
+	 { }
+	 
+	Point position;
 	Color color;
 };
 
