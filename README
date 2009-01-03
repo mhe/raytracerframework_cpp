@@ -1,48 +1,56 @@
-======== Hauptklassen ============
+Raytracer C++ framework for "Introduction to Computer Graphics"
+===============================================================
 
-raytracer.h, raytracer.cpp:
-	Der eigentliche Raytracer.
-	*** RT1: Beleuchtungsmodell implementieren ***
+This is a C++ framework for a raytracer. It is created for the Computer
+Science course "Introduction to Computer Graphics" taught at the 
+University of Groningen by Tobias Isenberg.
 
-sphere.cpp, sphere.h:
-	Die von "Object" abgeleitete "Sphere".
-	*** RT1: Schnittberechnung und Normale implementieren ***
+Author: Maarten Everts
 
-object.h:
-	Die abstrakte Klasse "Object" (daher keine .cpp-Datei)
+This framework is inspired by and uses code of the raytracer framework of 
+Bert Freudenberg that can be found at
+<http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html>
 
-light.h, light.cpp:
-	Die Klasse "Light"
+Description of the included files
+---------------------------------
 
-material.h, material.cpp:
-	Die Klasse "Material" (verwendet in Object)
+The raytracer source files:
 
-======== Hilfsklassen  ===========
+main.cpp
+:	Contains main(), starting point. Responsible for parsing command-line
+	arguments.
+	
+raytracer.cpp/.h
+:	Raytracer class. Responsible for reading the scene description, starting 
+	the raytracer and writing the result to an image file.
+	
+scene.cpp/.h
+:	Scene class. Contains code for the actual raytracing.
+	
+image.cpp/.h
+:	Image class, includes code for reading from and writing to PNG files.
+	
+light.cpp/.h
+:	Light class and Ray class.
 
-vector.h, vector.cpp:
-	Die Klassen "Vector", "Point" und "Ray" 
-	mit arithmetischen Operatoren
+object.cpp/.h
+:	Object class. Represents an object in the scene.
 
-color.h, color.cpp:
-	Die Klasse "Color" mit arithmetischen Operatoren
+sphere.cpp/.h
+:	Sphere class, which is a subclass of the Object class. Respresents a
+	sphere in the scene.
+	
+triple.cpp/.h
+:	Triple class. Represents a 3-dimensional vector which is used for colors, points,
+	and vectors. Includes a number of useful functions and operators, see the comments
+	in triple.h.
 
-image.h, image.cpp:
-	Die Klasse "Image" mit Ein- und Ausgabe
+Supporting source files:
 
-misc.h, misc.cpp:
-	Einige allgemeine Funktionen wie max(), min() etc.
-	comment() ueberliest Kommentare
-
-======== Sonstiges ===========
-
-main.cpp:
-	Das Hauptprogramm.
-
-Makefile:
-	Uebersetzungsanweisungen:
-	make depend view
-
-rt1.in:
-	Testszene
-
-
+lodepng.cpp/.h
+:	Code for reading from and writing to PNG files, used by the Image class. LodePNG is 
+	created by Lode Vandevenne and can be found at
+	<http://members.gamedev.net/lode/projects/LodePNG/>.
+yaml/*
+:	Code for parsing YAML documents. Created by Jesse Beder, can be obtained from
+	<http://code.google.com/p/yaml-cpp/>. See also yaml/license.txt.
