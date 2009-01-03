@@ -58,12 +58,8 @@ public:
 	inline int size() const     { return _width * _height; }
 
 	// File stuff
-	void write_ppm(ostream& s, bool bin = true) const;
-	bool read_ppm(istream& s);
-
 	void write_png(char* filename) const;
 	void read_png(char* filename);
-
 
 protected:
 
