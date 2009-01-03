@@ -59,10 +59,12 @@ void Image::read_png(char* filename)
 	 //decode the png
 	LodePNG::Decoder decoder;
 	decoder.decode(image, buffer.empty() ? 0 : &buffer[0], (unsigned)buffer.size());
+	cout << decoder.getChannels() << endl;
+	cout << decoder.getBpp() << endl;
 	
-	if (decoder.getChannels()!=3 || decoder.getBpp()!=24) {
+	if (decoder.getChannels()<3 || decoder.getBpp()<24) {
 		cerr << "Error: only color (RGBA), 8 bit per channel png images are supported." << endl;
-		cerr << "Either convert your image or change the sourcode." << endl;
+		cerr << "Either convert your image or change the sourcecode." << endl;
 		exit(1);
 	}
 	int w = decoder.getWidth();

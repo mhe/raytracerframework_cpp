@@ -31,6 +31,14 @@ public:
 		set_extent(width, height);    //creates array
 	}
 
+	Image(char *imageFilename)
+		: _pixel(0), _width(0), _height(0)
+	{
+		read_png(imageFilename);
+	}
+
+	
+
 	~Image()
 	{
 		if (_pixel) delete[] _pixel;
