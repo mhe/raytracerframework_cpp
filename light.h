@@ -1,14 +1,16 @@
-/**** -*- Mode: C++ -*- *****************************************************
- *   PROJECT: Classroom Raytracer
- *   FILE:    light.h
- *   CONTENT: Light declaration
- *
- *   AUTHOR:  Bert Freudenberg (bf)
- *   ADDRESS: University of Magdeburg, Germany
- *   EMAIL:   bert@isg.cs.uni-magdeburg.de
- *   RCSID:   $Id: light.h,v 1.2 2001/11/01 16:47:46 bert Exp bert $
- *
- *****************************************************************************/
+//
+//  Framework for a raytracer
+//  File: light.h
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
 
 #ifndef LIGHT_H_PG2BAJRA
 #define LIGHT_H_PG2BAJRA

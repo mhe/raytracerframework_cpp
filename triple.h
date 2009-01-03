@@ -1,10 +1,17 @@
-// 
-//  triple.h
-//  current
-//  
-//  Created by Maarten Everts on 2008-11-18.
-//  Copyright 2008 University of Groningen. All rights reserved.
-// 
+//
+//  Framework for a raytracer
+//  File: triple.h
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
+
 #ifndef TRIPLE_H_SEVQHPTA
 #define TRIPLE_H_SEVQHPTA
 

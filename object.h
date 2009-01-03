@@ -1,14 +1,16 @@
-/**** -*- Mode: C++ -*- *****************************************************
- *   PROJECT: Classroom Raytracer
- *   FILE:    object.h
- *   CONTENT: Object declaration
- *
- *   AUTHOR:  Bert Freudenberg (bf)
- *   ADDRESS: University of Magdeburg, Germany
- *   EMAIL:   bert@isg.cs.uni-magdeburg.de
- *   RCSID:   $Id: object.h,v 1.1 2000/04/10 10:21:17 bert Exp bert $
- *
- *****************************************************************************/
+//
+//  Framework for a raytracer
+//  File: object.h
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
 
 #ifndef OBJECT_H_AXKLE0OF
 #define OBJECT_H_AXKLE0OF

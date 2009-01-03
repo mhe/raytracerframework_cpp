@@ -1,14 +1,16 @@
-/**** -*- Mode: C++ -*- *****************************************************
-*   PROJECT: Classroom Raytracer
-*   FILE:    image.h
-*   CONTENT: Image class declaration
-*
-*   AUTHOR:  Bert Freudenberg (bf)
-*   ADDRESS: University of Magdeburg, Germany
-*   EMAIL:   bert@isg.cs.uni-magdeburg.de
-*   RCSID:   $Id: image.h,v 1.4 2001/11/01 16:47:46 bert Exp bert $
-*
-*****************************************************************************/
+//
+//  Framework for a raytracer
+//  File: image.h
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
 
 #ifndef IMAGE_H_IOLFQARK
 #define IMAGE_H_IOLFQARK

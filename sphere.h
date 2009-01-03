@@ -1,14 +1,16 @@
-/**** -*- Mode: C++ -*- *****************************************************
- *   PROJECT: Classroom Raytracer
- *   FILE:    sphere.h
- *   CONTENT: Sphere declaration
- *
- *   AUTHOR:  Bert Freudenberg (bf)
- *   ADDRESS: University of Magdeburg, Germany
- *   EMAIL:   bert@isg.cs.uni-magdeburg.de
- *   RCSID:   $Id: sphere.h,v 1.2 2002/11/20 20:23:28 bert Exp bert $
- *
- *****************************************************************************/
+//
+//  Framework for a raytracer
+//  File: sphere.h
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
 
 #ifndef SPHERE_H_115209AE
 #define SPHERE_H_115209AE

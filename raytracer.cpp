@@ -1,15 +1,16 @@
-/****************************************************************************
- *   PROJECT: Classroom Raytracer
- *   FILE:    raytracer.cpp
- *   CONTENT: Raytracing algorithm implmentation, plus scene reading
- *
- *   AUTHOR:  Bert Freudenberg (bf)
- *   ADDRESS: University of Magdeburg, Germany
- *   EMAIL:   bert@isg.cs.uni-magdeburg.de
- *   RCSID:   $Id: raytracer.cpp,v 1.2 2000/05/15 10:18:49 bert Exp bert $
- *
- *
- *****************************************************************************/
+//
+//  Framework for a raytracer
+//  File: raytracer.cpp
+//
+//  Created for the Computer Science course "Introduction Computer Graphics"
+//  taught at the University of Groningen by Tobias Isenberg.
+//
+//  Author: Maarten Everts
+//
+//  This framework is inspired by and uses code of the raytracer framework of 
+//  Bert Freudenberg that can be found at
+//  http://isgwww.cs.uni-magdeburg.de/graphik/lehre/cg2/projekt/rtprojekt.html 
+//
 
 #include "raytracer.h"
 #include "object.h"
