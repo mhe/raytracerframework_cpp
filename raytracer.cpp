@@ -23,6 +23,8 @@
 
 
 // Functions to ease reading from YAML input
+void operator >> (const YAML::Node& node, Triple& t);
+Triple parseTriple(const YAML::Node& node);
 
 void operator >> (const YAML::Node& node, Triple& t)
 {
@@ -41,7 +43,7 @@ Triple parseTriple(const YAML::Node& node)
 	return t;
 }
 
-Material* parseMaterial(const YAML::Node& node)
+Material* Raytracer::parseMaterial(const YAML::Node& node)
 {
 	Material *m = new Material();
 	node["color"] >> m->color;	
@@ -52,7 +54,7 @@ Material* parseMaterial(const YAML::Node& node)
 	return m;
 }
 
-Object* parseObject(const YAML::Node& node)
+Object* Raytracer::parseObject(const YAML::Node& node)
 {
 	Object *returnObject = NULL;
 	std::string objectType;
@@ -73,7 +75,7 @@ Object* parseObject(const YAML::Node& node)
 	return returnObject;
 }
 
-Light* parseLight(const YAML::Node& node)
+Light* Raytracer::parseLight(const YAML::Node& node)
 {
 	Point position;
 	node["position"] >> position;

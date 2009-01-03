@@ -17,11 +17,17 @@
 #include "triple.h"
 #include "light.h"
 #include "scene.h"
-
+#include "yaml/yaml.h"
 
 class Raytracer {
 private:
 	Scene *scene;
+	
+	// Couple of private functions for parsing YAML nodes
+	Material* parseMaterial(const YAML::Node& node);
+	Object* parseObject(const YAML::Node& node);
+	Light* parseLight(const YAML::Node& node);
+	
 public:
 	Raytracer()
 		{ }
