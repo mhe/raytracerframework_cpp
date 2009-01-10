@@ -21,7 +21,7 @@ main.cpp
 	arguments.
 	
 raytracer.cpp/.h
-:	Raytracer class. Responsible for reading the scene description, starting 
+:	Raytracer class. Responsible for reading the scene description, starting
 	the raytracer and writing the result to an image file.
 	
 scene.cpp/.h
@@ -41,16 +41,17 @@ sphere.cpp/.h
 	sphere in the scene.
 	
 triple.cpp/.h
-:	Triple class. Represents a 3-dimensional vector which is used for colors, points,
-	and vectors. Includes a number of useful functions and operators, see the comments
-	in triple.h.
+:	Triple class. Represents a 3-dimensional vector which is used for colors,
+	points,	and vectors. Includes a number of useful functions and operators,
+	see the comments in triple.h.
 
 Supporting source files:
 
 lodepng.cpp/.h
-:	Code for reading from and writing to PNG files, used by the Image class. LodePNG is 
-	created by Lode Vandevenne and can be found at
+:	Code for reading from and writing to PNG files, used by the Image class.
+	LodePNG is created by Lode Vandevenne and can be found at
 	<http://members.gamedev.net/lode/projects/LodePNG/>.
+
 yaml/*
-:	Code for parsing YAML documents. Created by Jesse Beder, can be obtained from
-	<http://code.google.com/p/yaml-cpp/>. See also yaml/license.txt.
+:	Code for parsing YAML documents. Created by Jesse Beder, can be obtained 
+	from <http://code.google.com/p/yaml-cpp/>. See also yaml/license.txt.
