@@ -14,7 +14,7 @@ Bert Freudenberg that can be found at
 Description of the included files
 ---------------------------------
 
-The raytracer source files:
+### The raytracer source files:
 
 main.cpp
 :	Contains main(), starting point. Responsible for parsing command-line
@@ -45,7 +45,7 @@ triple.cpp/.h
 	and vectors. Includes a number of useful functions and operators, see the comments
 	in triple.h.
 
-Supporting source files:
+### Supporting source files:
 
 lodepng.cpp/.h
 :	Code for reading from and writing to PNG files, used by the Image class. LodePNG is 
