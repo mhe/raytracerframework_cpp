@@ -15,52 +15,52 @@
 Eye: [200,200,1000]  
 
 Lights:
-  - position: [-200,600,1500]
-    color: [1.0,1.0,1.0]
+- position: [-200,600,1500]
+  color: [1.0,1.0,1.0]
 
 Objects:
-  - type: sphere
-    position: [90,320,100]
-    radius: 50
-    material: # blue
-      color: [0.0,0.0,1.0]
-      ka: 0.2
-      kd: 0.7
-      ks: 0.5
-      n: 64
-  - type: sphere
-    position: [210,270,300]
-    radius: 50
-    material: # green
-      color: [0.0,1.0,0.0]
-      ka: 0.2
-      kd: 0.3
-      ks: 0.5
-      n: 8
-  - type: sphere
-    position: [290,170,150]
-    radius: 50
-    material: # red
-      color: [1.0,0.0,0.0]
-      ka: 0.2
-      kd: 0.7
-      ks: 0.8
-      n: 32
-  - type: sphere
-    position: [140,220,400]
-    radius: 50
-    material: # yellow
-      color: [1.0,0.8,0.0]
-      ka: 0.2
-      kd: 0.8
-      ks: 0.0
-      n: 1
-  - type: sphere
-    position: [110,130,200]
-    radius: 50
-    material: # orange
-      color: [1.0,0.5,0.0]
-      ka: 0.2
-      kd: 0.8
-      ks: 0.5
-      n: 32
+- type: sphere
+  position: [90,320,100]
+  radius: 50
+  material: # blue
+    color: [0.0,0.0,1.0]
+    ka: 0.2
+    kd: 0.7
+    ks: 0.5
+    n: 64
+- type: sphere
+  position: [210,270,300]
+  radius: 50
+  material: # green
+    color: [0.0,1.0,0.0]
+    ka: 0.2
+    kd: 0.3
+    ks: 0.5
+    n: 8
+- type: sphere
+  position: [290,170,150]
+  radius: 50
+  material: # red
+    color: [1.0,0.0,0.0]
+    ka: 0.2
+    kd: 0.7
+    ks: 0.8
+    n: 32
+- type: sphere
+  position: [140,220,400]
+  radius: 50
+  material: # yellow
+    color: [1.0,0.8,0.0]
+    ka: 0.2
+    kd: 0.8
+    ks: 0.0
+    n: 1
+- type: sphere
+  position: [110,130,200]
+  radius: 50
+  material: # orange
+    color: [1.0,0.5,0.0]
+    ka: 0.2
+    kd: 0.8
+    ks: 0.5
+    n: 32
