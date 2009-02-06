@@ -36,11 +36,11 @@ void Image::write_png(char* filename) const
 	std::vector<unsigned char>::iterator imageIterator = image.begin();
 	Color *currentPixel = _pixel;
 	while (imageIterator != image.end()) {
-		*imageIterator = currentPixel->r * 255;
+		*imageIterator = (unsigned char)(currentPixel->r * 255.0);
 		imageIterator++;
-		*imageIterator = currentPixel->g * 255;
+		*imageIterator = (unsigned char)(currentPixel->g * 255.0);
 		imageIterator++;
-		*imageIterator = currentPixel->b * 255;
+		*imageIterator = (unsigned char)(currentPixel->b * 255.0);
 		imageIterator++;
 		*imageIterator = 255;
 		imageIterator++;
