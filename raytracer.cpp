@@ -142,6 +142,8 @@ bool Raytracer::readScene(char* inputFilename)
 	    std::cerr << "Error at line " << e.line + 1 << ", col " << e.column + 1 << ": " << e.msg << std::endl;
 		return false;
 	}
+
+	cout << "YAML parsing results: " << scene->getNumObjects() << " objects read." << endl;
 	return true;
 }
 
