@@ -20,7 +20,7 @@ Color Scene::trace(const Ray &ray)
 	// Find hit object and distance
 	double t, min_t = 0.0;
 	Object *obj = NULL;
-	for (int i = 0; i < numObjects; ++i) {
+	for (unsigned int i = 0; i < numObjects; ++i) {
 		if (objects[i]->intersect(ray, &t) && (!obj || t < min_t)) {
 			min_t = t;
 			obj = objects[i];
@@ -44,12 +44,12 @@ Color Scene::trace(const Ray &ray)
 	* Sought: color
 	*
 	* Hints: (see triple.h)
-	*        Vector.dot(Vector) dot product
+	*        Triple.dot(Vector) dot product
 	*        Vector+Vector      vector sum
 	*        Vector-Vector      vector difference
 	*        Point-Point        yields vector
 	*        Vector.normalize() normalizes vector, returns length
-	*        float*Color        scales each color component (r,g,b)
+	*        double*Color        scales each color component (r,g,b)
 	*        Color*Color        dito
 	*        pow(a,b)           a to the power of b
 	****************************************************/

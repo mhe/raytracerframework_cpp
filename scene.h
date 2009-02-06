@@ -26,9 +26,9 @@ const int MAX_LIGHTS  = 10;
 class Scene
 {
 private:
-	int numObjects;
+	unsigned int numObjects;
 	Object* objects[MAX_OBJECTS];
-	int numLights;
+	unsigned int numLights;
 	Light* lights[MAX_LIGHTS];
 	Triple eye;
 public:
@@ -38,6 +38,8 @@ public:
 	void addObject(Object *o);
 	void addLight(Light *l);
 	void setEye(Triple e);
+	unsigned int getNumObjects() { return numObjects; }
+	unsigned int getNumLights() { return numLights; }
 };
 
 #endif /* end of include guard: SCENE_H_KNBLQLP6 */
