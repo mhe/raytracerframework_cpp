@@ -22,10 +22,10 @@ class Material
 {
 public:
 	Color color;        // base color
-	float ka;           // ambient intensity
-	float kd;           // diffuse intensity
-	float ks;           // specular intensity 
-	float n;            // exponent for specular highlight size
+	double ka;           // ambient intensity
+	double kd;           // diffuse intensity
+	double ks;           // specular intensity 
+	double n;            // exponent for specular highlight size
 
 	Material()
 		{ }
