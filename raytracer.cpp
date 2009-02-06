@@ -21,7 +21,7 @@
 #include "yaml/yaml.h"
 #include <ctype.h>
 #include <fstream>
-
+#include <assert.h>
 
 // Functions to ease reading from YAML input
 void operator >> (const YAML::Node& node, Triple& t);
